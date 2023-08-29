@@ -1,0 +1,18 @@
+---
+# tasks file for vector-role
+- name: Get vector distrib
+  ansible.builtin.get_url:
+    url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm"
+    dest: "/tmp/vector-{{ vector_version }}.rpm"
+- name: Install vector package
+  ansible.builtin.yum:
+    name:
+      - /tmp/vector-{{ vector_version }}.rpm
+- name: Create vector config
+  ansible.builtin.copy:
+    dest: /etc/vector/config.yaml
+    content: "{{ vector_config | to_nice_yaml(indent=2) }}"
+    mode: u=rw,g=r,o=r
+  notify: Start Vector service
+- name: Flush handlers
+  meta: flush_handlers
