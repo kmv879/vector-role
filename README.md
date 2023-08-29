@@ -12,7 +12,7 @@ Role Variables
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
 | `vector_version` | 0.27.0 | Версия Vector|
-| `vector_config` |    | Содержимое конфигурационного файла|
+| `vector_config` |  [defaults/main.yml#L4](https://github.com/kmv879/vector-role/blob/main/defaults/main.yml#L4)   | Содержимое конфигурационного файла|
 
 
 Example Playbook
@@ -25,9 +25,10 @@ Example Playbook
 License
 -------
 
-BSD
+MIT
 
 Author Information
+------------------
 
 ------------------
 Role by [Mikhail Kozhedub](https://github.com/kmv879).
